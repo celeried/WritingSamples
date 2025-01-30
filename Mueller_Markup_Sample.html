@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    body{
+      font-family: arial, sans-serif;
+    }
+
+    h1{
+      color:rgb(78, 176, 189);
+      font-size: 22pt;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 10px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    ul {
+      margin:0;
+      padding-left: 20px;
+    }
+  </style>
+  <body>
+    <!--The following terms are fictional: Cloudy, Weather Status, Hub 1, Hub 2, Hub 3, Appy, Chappy, Happy, Sappy, and Flappy.-->
+    <h1>Cloudy: An Overview</h1>
+    <p><b>Cloudy</b> is a private cloud ecosystem of unique servers and applications. Cloudy provides application deployment flexibility, streamlined hardware resource use, and a common hosting environment.</p>
+    <p>Cloudy is equipped with <b>Weather Status</b>, a user interface (UI) solution that enables entry-level admins to maintain Cloudy and its corresponding application load without knowledge of command-line code.</p>
+    <p>The Hub 1, Hub 2, and Hub 3 systems provide servers for the Cloudy ecosystem. All systems that contribute servers to Cloudy can run select Cloudy-approved applications. For Cloudy 1.1 <i>(Weather Status Version 2.1)</i>, the Cloudy server contribution and application distribution is as follows:</p>
+    <table>
+      <tr>
+        <th>System</th>
+        <th>Servers Contributed to Cloudy</th>
+        <th>Cloudy Applications</th>
+      </tr>
+      <tr>
+        <td>Hub 1</td>
+        <td>Two (2) Intel Xeon E-2136 servers</td>
+        <td>
+          <ul>
+            <li>Appy</li>
+            <li>Chappy</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Hub 2</td>
+        <td>One (1) Intel Xeon E-2136 server</td>
+        <td>
+          <ul>
+            <li>Happy</li>
+            <li>Sappy</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Hub 3</td>
+        <td>One (1) Intel Xeon E-2136 server</td>
+        <td>
+          <ul>
+            <li>Flappy</li>
+          </ul>
+        </td>
+      </tr>
+    </table> 
+
+    <br></br>
+
+    <h1>Cloudy Basics: Kubernetes 101</h1>
+    <p>Cloudy is based on Kubernetes, a FOSS (Free Open Source Software) Orchestration Tool designed to manage containerized applications across multiple hosts. This means admins can deploy, host, update, and maintain applications and their availability 24/7. For example, if Appy runs on a server that needs maintenance, end users can still experience this application seamlessly during server repairs since the instance of this software can be transferred to an alternate Cloudy server.</p>
+    <p>Key terms admins will encounter while interacting with/and or observing Cloudy via Weather Status are defined, below:</p>
+    <ul>
+      <li><b>Cloudy Applications:</b> These are pre-approved applications designated to run within the ecosystem. They can be scheduled to run on any Cloudy worker node.</li>
+      <li><b>Node:</b> The terms "node" and "server" can be used interchangeably.</li>
+      <li><b>Worker Node:</b> A worker node is a server that provides its resources to Cloudy for application scheduling and hosting.</li>
+      <li><b>Cluster:</b> A cluster is a group of servers.</li>
+      <li><b>Container:</b> This is an executable image containing software and all its code libraries.</li>
+      <li><b>Control Plane Node:</b> A control plane node (aka, an orchestrator node) is a server running an instance of the software library responsible for managing and deploying containers in Cloudy. There are two (2) control plane nodes within Cloudy, indicated by a "C" icon in Weather Status.</li>
+      <li><b>Cordon:</b> This action marks a worker node as unusable to the control plane node(s). When a worker node is marked as "cordoned," the control plane node will not schedule applications to run on the designated node.</li>
+      <li><b>Drain:</b> This action cordons a worker node and also forces a removal of all applications running on it. Once a worker node has been drained, the control plane node will then attempt to reschedule the applications on another available worker node.</li>
+    </ul>
+         
+    <br></br>
+
+    <h1>Application Priority</h1> 
+    <p>When managing applications within Cloudy, the following priority scheme should be taken into account: </p>    
+    <table>
+      <tr>
+        <th>Application</th>
+        <th>Priority</th>
+        <th>Notes</th>
+      </tr>
+      <tr>
+        <td>Appy</td>
+        <td>1</td>
+        <td>This is an essential service. Appy must be maintained 24/7.</td>
+      </tr>
+      <tr>
+        <td>Happy</td>
+        <td>2</td>
+        <td>This is an essential service. Happy must be maintained 24/7.</td>
+      </tr>
+      <tr>
+        <td>Chappy</td>
+        <td>3</td>
+        <td>This is an optional service. Chappy should be maintained under ideal conditions.</td>
+      </tr>
+      <tr>
+        <td>Sappy</td>
+        <td>3</td>
+        <td>This is an optional service. Sappy should be maintained under ideal conditions.</td>
+      </tr>
+      <tr>
+        <td>Flappy</td>
+        <td>3</td>
+        <td>This is an optional service. Flappy should be maintained under ideal conditions.</td>
+      </tr>
+    </table> 
+  </body>
+</html>
